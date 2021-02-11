@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
 
-class Ticker extends StatelessWidget {
+class CartButton extends StatelessWidget {
   final Function onPress;
   final IconData icon;
   final double size;
   final Color color;
   final String badge;
 
-  Ticker({
+  CartButton({
     this.onPress,
     this.icon,
     this.size,

@@ -24,11 +24,10 @@ class Cuisine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = (MediaQuery.of(context).size.width - 10 - 10 - 40) / 2;
+    double width = (MediaQuery.of(context).size.width - 10 - 15 - 15) / 2;
 
     return Container(
-      //width: width,
-      padding: EdgeInsets.all(10),
+      //padding: EdgeInsets.symmetric(vertical: 10),
       child: Material(
         borderRadius: BorderRadius.circular(10),
         elevation: 10,
@@ -55,7 +54,6 @@ class Cuisine extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(bottom: 5),
             child: Column(
-              //crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 ClipRRect(
                   borderRadius: BorderRadius.only(
@@ -68,7 +66,7 @@ class Cuisine extends StatelessWidget {
                       gaplessPlayback: true, // to prevent image flickering
                       image: AssetImage(this.imgUrl),
                       width: width,
-                      height: width,
+                      height: width, fit: BoxFit.cover,
                     ),
                   ),
                 ),

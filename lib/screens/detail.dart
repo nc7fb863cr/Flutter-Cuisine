@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_food/components/index.dart';
+import 'package:flutter_food/components/indexRow.dart';
 import 'package:flutter_food/models/cart.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -33,7 +33,6 @@ class DetailScreen extends StatefulWidget {
 
 class _DetailScreenState extends State<DetailScreen> {
   int servings;
-  //Cart cart;
 
   @override
   void initState() {
@@ -43,12 +42,6 @@ class _DetailScreenState extends State<DetailScreen> {
     } else {
       servings = 1;
     }
-
-    // cart = Cart();
-
-    // autorun((_) {
-    //   print(cart.cart);
-    // });
   }
 
   @override
@@ -84,22 +77,16 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                       Positioned(
                         child: Padding(
-                            padding: EdgeInsets.only(left: 20, top: 30),
-                            child:
-                                // Ticker(
-                                //   icon: Icons.arrow_back_ios,
-                                //   color: Colors.white,
-                                //   size: 30,
-
-                                // ),
-                                IconButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              icon: Icon(Icons.arrow_back_ios),
-                              iconSize: 30,
-                              color: Colors.white,
-                            )),
+                          padding: EdgeInsets.only(left: 20, top: 30),
+                          child: IconButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            icon: Icon(Icons.arrow_back_ios),
+                            iconSize: 30,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -228,53 +215,10 @@ class _DetailScreenState extends State<DetailScreen> {
                                     imgUrl: 'assets/calories.png',
                                     unit: 'kcal',
                                   ),
-                                  // Index(
-                                  //   title: 'Fat',
-                                  //   value: 15,
-                                  //   imgUrl: 'assets/protein.png',
-                                  //   unit: 'g',
-                                  // ),
                                 ],
                               ),
                             ),
                           ),
-                          // SingleChildScrollView(
-                          //   scrollDirection: Axis.horizontal,
-                          //   child: Padding(
-                          //     padding: EdgeInsets.symmetric(
-                          //         vertical: 10, horizontal: 15),
-                          //     child: Row(
-                          //       mainAxisAlignment:
-                          //           MainAxisAlignment.spaceBetween,
-                          //       children: <Widget>[
-                          //         Index(
-                          //           //title: 'Protein',
-                          //           value: widget.protein.toString(),
-                          //           imgUrl: 'assets/protein.png',
-                          //           unit: 'g',
-                          //         ),
-                          //         Index(
-                          //           //title: 'Carbs',
-                          //           value: widget.carb.toString(),
-                          //           imgUrl: 'assets/carbs.png',
-                          //           unit: 'g',
-                          //         ),
-                          //         Index(
-                          //           //title: 'Calorie',
-                          //           value: widget.calorie.toDouble().toString(),
-                          //           imgUrl: 'assets/calories.png',
-                          //           unit: 'kcal',
-                          //         ),
-                          //         // Index(
-                          //         //   title: 'Fat',
-                          //         //   value: 15,
-                          //         //   imgUrl: 'assets/protein.png',
-                          //         //   unit: 'g',
-                          //         // ),
-                          //       ],
-                          //     ),
-                          //   ),
-                          // ),
                           SizedBox(
                             height: 80,
                           )
@@ -288,19 +232,21 @@ class _DetailScreenState extends State<DetailScreen> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: RaisedButton(
+                    padding: EdgeInsets.symmetric(vertical: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        IconButton(
-                          icon: Icon(
-                            Icons.shopping_cart_outlined,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {},
-                          iconSize: 26,
+                        Icon(
+                          Icons.shopping_cart_outlined,
+                          color: Colors.white,
+                          size: 26,
+                        ),
+                        SizedBox(
+                          width: 10,
                         ),
                         Text(
-                          'Place Order  (${widget.price * servings})',
+                          //'Place Order  (${widget.price * servings})',
+                          'Place Order',
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.white,

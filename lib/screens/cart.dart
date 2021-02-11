@@ -1,13 +1,15 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter_food/functions/getItemCount.dart';
+import 'package:mobx/mobx.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_food/functions/calculateIndex.dart';
-import 'package:flutter_food/screens/checkout.dart';
-import 'package:flutter_food/models/cart.dart';
-// import 'package:mobx/mobx.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_food/components/bill.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+
+import 'package:flutter_food/models/cart.dart';
+import 'package:flutter_food/components/bill.dart';
+import 'package:flutter_food/screens/checkout.dart';
 import 'package:flutter_food/functions/getTotal.dart';
+import 'package:flutter_food/functions/calculateIndex.dart';
 
 class CartScreen extends StatefulWidget {
   @override
@@ -18,7 +20,7 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context);
-    //autorun((_) => print(cart.cart));
+    autorun((_) => print('cart data: ${cart.cart}'));
 
     return Observer(
       builder: (_) => SafeArea(
@@ -49,12 +51,24 @@ class _CartScreenState extends State<CartScreen> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: 12),
-                    child: Text(
-                      'Shopping Cart',
-                      style: TextStyle(
-                        fontSize: 34,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'Cart ',
+                          style: TextStyle(
+                            fontSize: 34,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          '(${getItemCount(cart.cart)})',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
                     ),
                   ),
                   SizedBox(
@@ -68,13 +82,20 @@ class _CartScreenState extends State<CartScreen> {
                             ))
                         .toList(),
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Center(
                     child: Container(
                       width: MediaQuery.of(context).size.width - 40,
                       child: RaisedButton(
+                        padding: EdgeInsets.symmetric(vertical: 10),
                         child: Text(
                           'Checkout  (\$ ${getTotal(cart.cart)})',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                          ),
                         ),
                         color: Colors.purpleAccent,
                         onPressed: () {

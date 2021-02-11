@@ -25,7 +25,6 @@ class Genre extends StatelessWidget {
                   color: isSelected ?? false ? Colors.white : Colors.black,
                 ),
               ),
-              //decoration: BoxDecoration(color: Colors.red),
             ),
           ),
         ),

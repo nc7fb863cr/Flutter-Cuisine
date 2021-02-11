@@ -49,4 +49,4 @@ app.*.map.json
 # assets
 /assets/food
 /assets/backup
-/other
+.other/

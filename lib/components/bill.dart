@@ -70,29 +70,6 @@ class Bill extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-                  // Row(
-                  //   mainAxisSize: MainAxisSize.max,
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   children: <Widget>[
-                  //     Text(
-                  //       'X ${this.itemCount.toString()}',
-                  //       style: TextStyle(
-                  //         color: Colors.black.withOpacity(0.56),
-                  //         fontSize: 16,
-                  //       ),
-                  //     ),
-                  //     Text(
-                  //       'Total: \$ ${foodList[this.id]['price'].toString()}',
-                  //       style: TextStyle(
-                  //         color: Colors.purpleAccent,
-                  //         fontSize: 16,
-                  //       ),
-                  //     ),
-                  //     SizedBox(
-                  //       width: 10,
-                  //     ),
-                  //   ],
-                  // ),
                 ],
               )
             ],

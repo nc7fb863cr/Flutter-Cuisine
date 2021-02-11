@@ -1,4 +1,3 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_food/components/genre.dart';
@@ -40,8 +39,41 @@ class _HomeScreenState extends State<HomeScreen> {
       return count;
     }
 
-    // print(getItemCount());
-    //print(typeList);
+    Widget renderCards() {
+      return Expanded(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.only(left: 15, right: 15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Wrap(
+                  spacing: 10,
+                  runSpacing: 15,
+                  children: chosenList.map(
+                    (item) {
+                      return Cuisine(
+                        id: item,
+                        imgUrl: foodList[item]['url'],
+                        title: foodList[item]['name'],
+                        price: foodList[item]['price'],
+                        calorie: foodList[item]['calorie'],
+                        carb: foodList[item]['carb'],
+                        protein: foodList[item]['protein'],
+                        type: foodList[item]['type'],
+                      );
+                    },
+                  ).toList(),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
 
     return Observer(
       builder: (_) => SafeArea(
@@ -69,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         SizedBox(
-                          width: 15,
+                          width: 10,
                         ),
                         Text(
                           'Ben Alexander',
@@ -80,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                    Ticker(
+                    CartButton(
                       icon: Icons.shopping_cart,
                       onPress: getItemCount() > 0
                           ? () {
@@ -188,32 +220,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 10,
               ),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 10, right: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Wrap(
-                          children: chosenList.map((item) {
-                            return Cuisine(
-                              id: item,
-                              imgUrl: foodList[item]['url'],
-                              title: foodList[item]['name'],
-                              price: foodList[item]['price'],
-                              calorie: foodList[item]['calorie'],
-                              carb: foodList[item]['carb'],
-                              protein: foodList[item]['protein'],
-                              type: foodList[item]['type'],
-                            );
-                          }).toList(),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              renderCards(),
             ],
           ),
         ),

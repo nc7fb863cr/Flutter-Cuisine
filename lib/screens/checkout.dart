@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_food/components/index2.dart';
+import 'package:flutter_food/components/indexColumn.dart';
 import 'package:flutter_food/models/cart.dart';
 import 'package:provider/provider.dart';
 
