@@ -14,7 +14,7 @@ class Genre extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(10)),
         child: Material(
-          color: isSelected ?? false ? Colors.teal : Colors.transparent,
+          color: isSelected ?? false ? Colors.purpleAccent : Colors.transparent,
           child: InkWell(
             onTap: this.onPress ?? () {},
             child: Container(

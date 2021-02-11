@@ -12,4 +12,10 @@ abstract class _Cart with Store {
     print('add to cart');
     cart[id] = itemCount;
   }
+
+  @action
+  void clear() {
+    print('cart cleared');
+    cart.clear();
+  }
 }

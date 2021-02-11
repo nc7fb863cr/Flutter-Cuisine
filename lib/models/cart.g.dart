@@ -23,6 +23,17 @@ mixin _$Cart on _Cart, Store {
   }
 
   @override
+  void clear() {
+    final _$actionInfo =
+        _$_CartActionController.startAction(name: '_Cart.clear');
+    try {
+      return super.clear();
+    } finally {
+      _$_CartActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 

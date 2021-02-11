@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_food/components/button.dart';
-import 'package:flutter_food/components/genre.dart';
 import 'package:flutter_food/components/index.dart';
 import 'package:flutter_food/models/cart.dart';
 import 'package:provider/provider.dart';
@@ -113,10 +111,6 @@ class _DetailScreenState extends State<DetailScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          // Genre(
-                          //   title: widget.type,
-                          //   isSelected: true,
-                          // ),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 15),
                             child: Row(
@@ -147,10 +141,11 @@ class _DetailScreenState extends State<DetailScreen> {
                                     color: Colors.deepPurple,
                                   ),
                                 ),
-                                ClipRRect(
+                                Material(
+                                  elevation: 10,
+                                  color: Colors.purpleAccent,
                                   borderRadius: BorderRadius.circular(10),
                                   child: Container(
-                                    color: Colors.purpleAccent,
                                     child: Row(
                                       children: <Widget>[
                                         IconButton(
@@ -194,27 +189,13 @@ class _DetailScreenState extends State<DetailScreen> {
                                                   setState(() {
                                                     servings++;
                                                   });
-                                                  // if (servings < 10) {
-                                                  //   setState(() {
-                                                  //     servings++;
-                                                  //   });
-                                                  // } else {
-                                                  //   ScaffoldMessenger.of(
-                                                  //           context)
-                                                  //       .showSnackBar(
-                                                  //     SnackBar(
-                                                  //       content: Text(
-                                                  //           'This cuisine is out of stock!'),
-                                                  //     ),
-                                                  //   );
-                                                  // }
                                                 }
                                               : null,
                                         ),
                                       ],
                                     ),
                                   ),
-                                )
+                                ),
                               ],
                             ),
                           ),
@@ -257,6 +238,43 @@ class _DetailScreenState extends State<DetailScreen> {
                               ),
                             ),
                           ),
+                          // SingleChildScrollView(
+                          //   scrollDirection: Axis.horizontal,
+                          //   child: Padding(
+                          //     padding: EdgeInsets.symmetric(
+                          //         vertical: 10, horizontal: 15),
+                          //     child: Row(
+                          //       mainAxisAlignment:
+                          //           MainAxisAlignment.spaceBetween,
+                          //       children: <Widget>[
+                          //         Index(
+                          //           //title: 'Protein',
+                          //           value: widget.protein.toString(),
+                          //           imgUrl: 'assets/protein.png',
+                          //           unit: 'g',
+                          //         ),
+                          //         Index(
+                          //           //title: 'Carbs',
+                          //           value: widget.carb.toString(),
+                          //           imgUrl: 'assets/carbs.png',
+                          //           unit: 'g',
+                          //         ),
+                          //         Index(
+                          //           //title: 'Calorie',
+                          //           value: widget.calorie.toDouble().toString(),
+                          //           imgUrl: 'assets/calories.png',
+                          //           unit: 'kcal',
+                          //         ),
+                          //         // Index(
+                          //         //   title: 'Fat',
+                          //         //   value: 15,
+                          //         //   imgUrl: 'assets/protein.png',
+                          //         //   unit: 'g',
+                          //         // ),
+                          //       ],
+                          //     ),
+                          //   ),
+                          // ),
                           SizedBox(
                             height: 80,
                           )

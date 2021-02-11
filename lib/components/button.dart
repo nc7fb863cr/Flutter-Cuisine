@@ -22,6 +22,7 @@ class Ticker extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.all(15),
         child: Badge(
+          badgeColor: Colors.purpleAccent,
           badgeContent: Text(
             this.badge ?? '',
             style: TextStyle(color: Colors.white),
@@ -29,11 +30,11 @@ class Ticker extends StatelessWidget {
           child: Icon(
             this.icon,
             size: this.size,
-            color: this.color,
+            color: this.onPress == null ? Colors.grey : this.color,
           ),
         ),
       ),
-      onTap: this.onPress ?? () {},
+      onTap: this.onPress,
     );
   }
 }

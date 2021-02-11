@@ -1,6 +1,6 @@
 Map<String, Map> foodList = {
   "cake": {
-    "name": "Cake",
+    "name": "Vanilla Cake",
     "key": "cake",
     "url": "assets/vanilla cake.jpg",
     "price": 580,

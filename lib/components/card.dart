@@ -31,7 +31,7 @@ class Cuisine extends StatelessWidget {
       padding: EdgeInsets.all(10),
       child: Material(
         borderRadius: BorderRadius.circular(10),
-        elevation: 20,
+        elevation: 10,
         child: InkWell(
           onTap: () {
             Navigator.of(context).push(
@@ -65,6 +65,7 @@ class Cuisine extends StatelessWidget {
                   child: Hero(
                     tag: this.imgUrl,
                     child: Image(
+                      gaplessPlayback: true, // to prevent image flickering
                       image: AssetImage(this.imgUrl),
                       width: width,
                       height: width,

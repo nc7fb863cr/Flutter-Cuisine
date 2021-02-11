@@ -16,7 +16,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String currentType = 'Dessert';
+  final _searchController = TextEditingController();
+  String currentType = '';
+  List conditions;
+  List chosenList;
+
+  @override
+  void initState() {
+    super.initState();
+    conditions = typeList;
+    conditions.insert(0, 'All');
+
+    chosenList = foodList.keys.map((e) => e).toList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
 
     // print(getItemCount());
+    //print(typeList);
 
     return Observer(
       builder: (_) => SafeArea(
@@ -37,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              SizedBox(height: 30),
+              SizedBox(height: 40),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Row(
@@ -67,36 +80,19 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                    // IconButton(
-                    //     icon: Icon(
-                    //       Icons.menu,
-                    //       size: 30,
-                    //     ),
-                    //     onPressed: () {}),
-                    // Badge(
-                    //   child:
-                    //       IconButton(icon: Icon(Icons.menu), onPressed: () {}),
-                    //   badgeContent: Text('3'),
-                    // ),
-                    // Padding(
-                    //   padding: EdgeInsets.all(15),
-                    //   child: (Badge(
-                    //     child: IconButton(
-                    //         icon: Icon(Icons.shopping_cart), onPressed: () {}),
-                    //     badgeContent: Text('3'),
-                    //   )),
-                    // )
                     Ticker(
                       icon: Icons.shopping_cart,
-                      onPress: () {
-                        Navigator.of(context).push(
-                          CupertinoPageRoute(
-                            builder: (BuildContext context) {
-                              return CartScreen();
-                            },
-                          ),
-                        );
-                      },
+                      onPress: getItemCount() > 0
+                          ? () {
+                              Navigator.of(context).push(
+                                CupertinoPageRoute(
+                                  builder: (BuildContext context) {
+                                    return CartScreen();
+                                  },
+                                ),
+                              );
+                            }
+                          : null,
                       size: 30,
                       badge: getItemCount().toString(),
                     ),
@@ -119,31 +115,73 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 15,
               ),
-              // Genre(
-              //   title: 'All',
-              //   isSelected: currentType == '',
-              //   onPress: () {
-              //     setState(() {
-              //       currentType = '';
-              //     });
-              //   },
-              // ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: TextField(
+                  controller: _searchController,
+                  onChanged: (inputText) {
+                    if (inputText.trim() == '') {
+                      chosenList = foodList.keys.map((item) => item).toList();
+                    } else {
+                      chosenList = chosenList
+                          .where((item) => foodList[item]['name']
+                              .toLowerCase()
+                              .contains(inputText.toLowerCase()))
+                          .toList();
+                    }
+                    setState(() {});
+                  },
+                  autocorrect: true,
+                  autofocus: false,
+                  decoration: InputDecoration(
+                    hintText: 'Search food here',
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: 0,
+                      horizontal: 10,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(width: 1),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: typeList
-                        .map((item) => Genre(
-                              title: item,
-                              isSelected: currentType == item,
-                              onPress: () {
-                                setState(() {
-                                  currentType = item;
-                                });
-                              },
-                            ))
-                        .toList(),
+                    children: conditions.map((item) {
+                      if (item == 'All') {
+                        return Genre(
+                          title: 'All',
+                          isSelected: currentType == '',
+                          onPress: () {
+                            setState(() {
+                              currentType = '';
+                              chosenList = foodList.keys.map((e) => e).toList();
+                            });
+                          },
+                        );
+                      } else {
+                        return Genre(
+                          title: item,
+                          isSelected: currentType == item,
+                          onPress: () {
+                            setState(() {
+                              currentType = item;
+                              chosenList = foodList.keys
+                                  .where((item) =>
+                                      foodList[item]['type'] == currentType)
+                                  .toList();
+                            });
+                          },
+                        );
+                      }
+                    }).toList(),
                   ),
                 ),
               ),
@@ -157,24 +195,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        // TextField(
-                        //   decoration: InputDecoration(
-                        //     border: OutlineInputBorder(
-                        //       borderRadius: BorderRadius.circular(10),
-                        //       borderSide: BorderSide(width: 1),
-                        //     ),
-                        //   ),
-                        // ),
-                        // Genre(
-                        //   title: 'All',
-                        // ),
-                        // Cuisine(
-                        //   imgUrl: 'assets/bread.jpg',
-                        //   title: 'Bread',
-                        //   price: '85',
-                        // ),
                         Wrap(
-                          children: foodList.keys.map((item) {
+                          children: chosenList.map((item) {
                             return Cuisine(
                               id: item,
                               imgUrl: foodList[item]['url'],
