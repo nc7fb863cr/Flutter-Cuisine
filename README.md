@@ -1,4 +1,4 @@
-# flutter_food
+# Olivia's Kitchen
 
 A new Flutter project.
 
