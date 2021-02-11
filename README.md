@@ -1,6 +1,10 @@
 # Olivia's Kitchen
 
-A new Flutter project.
+This is an Flutter demo application to demonstrate how to use mobx to realize global state management.
+
+# Dependencies
+
+mobx
 
 ## Getting Started
 
