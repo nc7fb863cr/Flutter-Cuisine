@@ -2,27 +2,8 @@
 This is an Flutter demo application to demonstrate how to use mobx to perform global state management.
 
 # Screenshots
-![Home](https://raw.githubusercontent.com/nc7fb863cr/Flutter-Cuisine/main/screenshots/home.jpg?token=ASSHTJZTXTYB3J6Y77JZCRLAEXZSA) | ![Detail](https://raw.githubusercontent.com/nc7fb863cr/Flutter-Cuisine/main/screenshots/detail.jpg?token=ASSHTJ4JX3WKKVNVY72DO43AEXZUI)
-![Cart](https://raw.githubusercontent.com/nc7fb863cr/Flutter-Cuisine/main/screenshots/cart.jpg?token=ASSHTJZDCCM66VR55BTGBHDAEX2QA) | ![Checkout](https://raw.githubusercontent.com/nc7fb863cr/Flutter-Cuisine/main/screenshots/checkout.jpg?token=ASSHTJ4OGHKISJAM6SUDOADAEX2RK)
-
-<img src="screenshots/home.jpg" width="360" height="720">
-
-<table>
-  <tr>
-    <td> 
-        <img src="https://raw.githubusercontent.com/nc7fb863cr/Flutter-Cuisine/main/screenshots/home.jpg?token=ASSHTJZTXTYB3J6Y77JZCRLAEXZSA" alt="1" width ="360px" height="640px">
-    </td>
-
-    <td>
-        <img src="https://raw.githubusercontent.com/nc7fb863cr/Flutter-Cuisine/main/screenshots/detail.jpg?token=ASSHTJ4JX3WKKVNVY72DO43AEXZUI" alt="2" width = 360px height = 640px>
-    </td>
-  </tr> 
-  <tr>
-      <td><img src="https://raw.githubusercontent.com/nc7fb863cr/Flutter-Cuisine/main/screenshots/cart.jpg?token=ASSHTJ2HAB3H4G5OUXDKE7TAEXZVM" alt="3" width = 360px height = 640px></td>
-
-      <td><img src="https://raw.githubusercontent.com/nc7fb863cr/Flutter-Cuisine/main/screenshots/checkout.jpg?token=ASSHTJ4F6CF72C22XXMY3CTAEXZWMg" align="right" alt="4" width = 360px height = 640px></td>
-  </tr>
-</table>
+<img src="screenshots/home.jpg" width="360" height="772"><img src="screenshots/detail.jpg" width="360" height="772">
+<img src="screenshots/cart.jpg" width="360" height="772"><img src="screenshots/checkout.jpg" width="360" height="772">
 
 # Introduction
 This application is basically consisted of four screens: Home, Detail, Cart, and Checkout.<br>
