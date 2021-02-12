@@ -30,6 +30,7 @@ class CheckoutScreen extends StatelessWidget {
                   'assets/cooking.jpg',
                   width: MediaQuery.of(context).size.width * 0.9,
                   height: MediaQuery.of(context).size.width * 0.9,
+                  fit: BoxFit.contain,
                 ),
                 Text(
                   'Your meal is almost ready!',

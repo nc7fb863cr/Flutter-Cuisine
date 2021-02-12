@@ -136,15 +136,16 @@ class _DetailScreenState extends State<DetailScreen> {
                                     child: Row(
                                       children: <Widget>[
                                         IconButton(
+                                          disabledColor: Colors.black,
                                           icon: Icon(Icons.remove),
                                           color: Colors.white,
-                                          onPressed: () {
-                                            if (servings > 1) {
-                                              setState(() {
-                                                servings--;
-                                              });
-                                            }
-                                          },
+                                          onPressed: servings > 1
+                                              ? () {
+                                                  setState(() {
+                                                    servings--;
+                                                  });
+                                                }
+                                              : null,
                                         ),
                                         SizedBox(
                                           width: 10,
@@ -169,6 +170,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                           width: 10,
                                         ),
                                         IconButton(
+                                          disabledColor: Colors.black,
                                           icon: Icon(Icons.add),
                                           color: Colors.white,
                                           onPressed: servings < 10
