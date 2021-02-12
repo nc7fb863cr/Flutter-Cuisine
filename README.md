@@ -5,6 +5,8 @@ This is an Flutter demo application to demonstrate how to use mobx to perform gl
 ![Home](https://raw.githubusercontent.com/nc7fb863cr/Flutter-Cuisine/main/screenshots/home.jpg?token=ASSHTJZTXTYB3J6Y77JZCRLAEXZSA) | ![Detail](https://raw.githubusercontent.com/nc7fb863cr/Flutter-Cuisine/main/screenshots/detail.jpg?token=ASSHTJ4JX3WKKVNVY72DO43AEXZUI)
 ![Cart](https://raw.githubusercontent.com/nc7fb863cr/Flutter-Cuisine/main/screenshots/cart.jpg?token=ASSHTJZDCCM66VR55BTGBHDAEX2QA) | ![Checkout](https://raw.githubusercontent.com/nc7fb863cr/Flutter-Cuisine/main/screenshots/checkout.jpg?token=ASSHTJ4OGHKISJAM6SUDOADAEX2RK)
 
+<img src="screenshots/home.jpg" width="360" height="720">
+
 <table>
   <tr>
     <td> 
