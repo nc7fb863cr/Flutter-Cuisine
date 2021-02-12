@@ -37,5 +37,5 @@ flutter packages pub run build_runner build  --delete-conflicting-outputs
 ```
 
 # Snapshots
-![alt text](https://github.com/nc7fb863cr/Flutter-Cuisine/main/image.jpg?raw=true)
+![alt text](https://github.com/nc7fb863cr/Flutter-Cuisine/main/Screenshot_20210211-211848.jpg?token=ASSHTJ3I4ZBZQPCEYFLC63TAEXYA4)
 
